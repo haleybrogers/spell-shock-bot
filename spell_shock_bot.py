@@ -14,8 +14,7 @@ def slack_events():
     print("🔍 Slack sent:", data)
 
     if "challenge" in data:
-        return jsonify({"challenge": data["challenge"]})
-
+     return data["challenge"], 200, {"Content-Type": "text/plain"}
     if "event" in data:
         event = data["event"]
         if event.get("type") == "reaction_added":
